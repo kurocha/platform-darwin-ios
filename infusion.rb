@@ -24,7 +24,7 @@ define_platform "darwin-ios" do |platform|
 
 		linkflags []
 
-		ccflags [:buildflags]
+		cflags [:buildflags]
 		cxxflags [:buildflags]
 		ldflags [:buildflags, :linkflags]
 
