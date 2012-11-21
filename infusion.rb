@@ -14,7 +14,7 @@ define_platform "darwin-ios" do |platform|
 		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.0"}
 		default sdk_path {platform_path + "Developer/SDKs/iPhoneOS#{sdk_version}.sdk"}
 
-		default architectures ["-arch armv7"]
+		default architectures %W{-arch armv7}
 
 		buildflags [
 			:architectures,
