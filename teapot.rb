@@ -14,13 +14,13 @@ def setup_provisions(target)
 		ldflags ["-framework", "OpenGLES"]
 	end
 	
-	target.provides 'Aggregate/OpenGL' => "Library/OpenGLES"
+	target.provides 'Library/OpenGL' => "Library/OpenGLES"
 	
 	target.provides 'Library/OpenAL' do
 		ldflags ["-framework", "OpenAL"]
 	end
 	
-	target.provides 'Aggregate/UIKit' do
+	target.provides 'Aggregate/Display' do
 		ldflags [
 			"-framework", "Foundation",
 			"-framework", "CoreVideo",
