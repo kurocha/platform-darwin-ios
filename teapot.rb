@@ -20,6 +20,14 @@ def setup_provisions(target)
 		ldflags ["-framework", "OpenAL"]
 	end
 	
+	target.provides "Library/z" do
+		append linkflags "-lz"
+	end
+	
+	target.provides "Library/bz2" do
+		append linkflags "-lbz2"
+	end
+	
 	target.provides 'Aggregate/Display' do
 		ldflags [
 			"-framework", "Foundation",
