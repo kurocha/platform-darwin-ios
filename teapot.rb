@@ -3,7 +3,7 @@
 #  This file is part of the "Teapot" project, and is released under the MIT license.
 #
 
-required_version "0.5"
+required_version "0.6"
 
 def setup_provisions(target)
 	target.provides 'Language/C++11' do
@@ -46,7 +46,7 @@ define_target "platform-darwin-ios" do |target|
 		default platform_path {xcode_path + "Platforms/iPhoneOS.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 
-		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.0"}
+		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.1"}
 		default sdk_path {platform_path + "Developer/SDKs/iPhoneOS#{sdk_version}.sdk"}
 
 		default architectures %W{-arch armv7}
@@ -88,7 +88,7 @@ define_target "platform-darwin-ios-simulator" do |target|
 		default platform_path {xcode_path + "Platforms/iPhoneSimulator.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 		
-		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.0"}
+		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.1"}
 		default sdk_path {platform_path + "Developer/SDKs/iPhoneSimulator#{sdk_version}.sdk"}
 
 		default architectures %W{-arch i386}
