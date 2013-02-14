@@ -5,6 +5,7 @@
 
 required_version "0.6"
 
+# Both iOS and the simulator provide the same targets.
 def setup_provisions(target)
 	target.provides 'Language/C++11' do
 		cxxflags %W{-std=c++11 -stdlib=libc++ -Wno-c++11-narrowing}
