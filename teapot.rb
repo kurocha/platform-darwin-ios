@@ -47,7 +47,7 @@ define_target "platform-darwin-ios" do |target|
 		default platform_path {xcode_path + "Platforms/iPhoneOS.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 
-		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.1"}
+		default sdk_version {ENV["IOS_SDK_VERSION"] || "6.1"}
 		default sdk_path {platform_path + "Developer/SDKs/iPhoneOS#{sdk_version}.sdk"}
 
 		default architectures %W{-arch armv7}
