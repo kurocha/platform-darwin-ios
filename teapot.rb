@@ -43,7 +43,7 @@ define_target "platform-darwin-ios" do |target|
 	target.provides "Platform/darwin-ios" do
 		default platform_name "darwin-ios"
 
-		default xcode_path Pathname.new(`xcode-select --print-path`.chomp)
+		default xcode_path Path.new(`xcode-select --print-path`.chomp)
 		default platform_path {xcode_path + "Platforms/iPhoneOS.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 
@@ -85,7 +85,7 @@ define_target "platform-darwin-ios-simulator" do |target|
 	target.provides "Platform/darwin-ios-simulator" do
 		default platform_name "darwin-ios-simulator"
 
-		default xcode_path Pathname.new(`xcode-select --print-path`.chomp)
+		default xcode_path Path.new(`xcode-select --print-path`.chomp)
 		default platform_path {xcode_path + "Platforms/iPhoneSimulator.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 		
