@@ -7,10 +7,6 @@ teapot_version "1.0.0"
 
 # Both iOS and the simulator provide the same targets.
 def setup_provisions(target)
-	target.provides 'Language/C++11' do
-		cxxflags %W{-std=c++11 -stdlib=libc++ -Wno-c++11-narrowing}
-	end
-	
 	target.provides 'Library/OpenGLES' do
 		ldflags ["-framework", "OpenGLES"]
 	end
@@ -47,15 +43,13 @@ define_target "platform-darwin-ios" do |target|
 		default platform_path {xcode_path + "Platforms/iPhoneOS.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 
-		default sdk_version {ENV["IOS_SDK_VERSION"] || "6.1"}
-		default sdk_path {platform_path + "Developer/SDKs/iPhoneOS#{sdk_version}.sdk"}
+		default sdk_path {platform_path + "Developer/SDKs/iPhoneOS.sdk"}
 
 		default architectures %W{-arch armv7}
 
 		buildflags [
 			:architectures,
 			"-isysroot", :sdk_path,
-			->{"-miphoneos-version-min=#{sdk_version}"},
 			"-pipe"
 		]
 
@@ -89,15 +83,14 @@ define_target "platform-darwin-ios-simulator" do |target|
 		default platform_path {xcode_path + "Platforms/iPhoneSimulator.platform"}
 		default toolchain_path {xcode_path + "Toolchains/XcodeDefault.xctoolchain"}
 		
-		default sdk_version {ENV["IPHONE_SDK_VERSION"] || "6.1"}
-		default sdk_path {platform_path + "Developer/SDKs/iPhoneSimulator#{sdk_version}.sdk"}
+		default sdk_path {platform_path + "Developer/SDKs/iPhoneSimulator.sdk"}
 
 		default architectures %W{-arch i386}
 
 		buildflags [
 			:architectures,
 			"-isysroot", :sdk_path,
-			->{"-miphoneos-version-min=#{sdk_version}"},
+			"-pipe"
 		]
 
 		linkflags []
